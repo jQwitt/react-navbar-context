@@ -1,13 +1,208 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+:root {
+  --nav-size: 60px;
+  --border-radius: 8px;
+  --speed: 400ms;
+  --bg-d: #242526;
+  --bg-accent-d: #484a4d;
+  --text-color-d: #dadce1;
+  --border-d: 1px solid #474a4d;
+  --bg-l: #f2f5f8;
+  --bg-accent-l: #eef1f7;
+  --text-color-l: #121213;
+  --border-l: 1px solid #cedceb;
+}
+
+.dark {
+  background-color: var(--bg-d);
+  color: var(--text-color-d);
+  border-bottom: var(--border-d);
+}
+
+.light {
+  background-color: var(--bg-l);
+  color: var(--text-color-l);
+  border-bottom: var(--border-l);
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+a,
+p {
+  text-decoration: none;
+}
+
+p {
+  margin: 0.25rem;
+}
+
+.dark p {
+  color: var(--text-color-d);
+}
+
+.light p {
+  color: var(--text-color-l);
+}
+
+.navbar {
+  height: var(--nav-size);
+  padding: 0 1rem;
+}
+
+.navbar-nav {
+  max-width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.nav-item {
+  width: calc(var(--nav-size) * 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Icon Button */
+.icon-button {
+  --button-size: calc(var(--nav-size) * 0.5);
+  width: var(--button-size);
+  height: var(--button-size);
+  border-radius: 50%;
+  padding: 5px;
+  margin: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: filter 300ms;
+}
+
+.icon-button:hover {
+  filter: brightness(1.2);
+}
+
+.icon-button svg {
+  width: 20px;
+  height: 20px;
+}
+
+.dark .icon-button {
+  color: var(--text-color-d);
+  background-color: var(--bg-accent-d);
+}
+
+.light .icon-button {
+  color: var(--text-color-l);
+  background-color: var(--bg-accent-l);
+}
+
+.dark .icon-button svg {
+  fill: var(--text-color-d);
+}
+
+.light .icon-button svg {
+  fill: var(--text-color-l);
+}
+
+/* Dropdown Menu */
+.dropdown {
+  position: absolute;
+  top: 58px;
+  width: 300px;
+  transform: translateX(-45%);
+  border-radius: var(--border-radius);
+  padding: 1rem;
+  overflow: hidden;
+  transition: height var(--speed) ease;
+}
+
+.menu {
+  width: 100%;
+}
+
+.dark .dropdown {
+  background-color: var(--bg-d);
+  border: var(--border-d);
+}
+
+.light .dropdown {
+  background-color: var(--bg-l);
+  border: var(--border-l);
+}
+
+.dropdown-item {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  border-radius: var(--border-radius);
+  transition: background var(--speed);
+  padding: 0.5rem;
+}
+
+.dropdown-item .icon-button {
+  margin-right: 0.5rem;
+}
+
+.dropdown-item .icon-button:hover {
+  filter: none;
+}
+
+.dark .dropdown-item:hover {
+  background-color: #313235;
+}
+
+.light .dropdown-item:hover {
+  background-color: #d8d9dd;
+}
+
+.icon-right {
+  margin-left: auto;
+}
+
+/* CSSTransition classes  */
+.menu-primary-enter {
+  position: absolute;
+  transform: translateX(-110%);
+}
+.menu-primary-enter-active {
+  transform: translateX(0%);
+  transition: all var(--speed) ease;
+}
+.menu-primary-exit {
+  position: absolute;
+}
+.menu-primary-exit-active {
+  transform: translateX(-110%);
+  transition: all var(--speed) ease;
+}
+
+.menu-secondary-enter {
+  transform: translateX(110%);
+}
+.menu-secondary-enter-active {
+  transform: translateX(0%);
+  transition: all var(--speed) ease;
+}
+.menu-secondary-exit {
+}
+.menu-secondary-exit-active {
+  transform: translateX(110%);
+  transition: all var(--speed) ease;
 }
