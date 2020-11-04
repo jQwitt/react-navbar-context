@@ -9,5 +9,5 @@ Clone and cd into directory, then run:\
 
 ## Sources
 
-[Dropdown Menu Tutorial](https://www.youtube.com/watch?v=IF6k0uZuypA&ab_channel=Fireship)
+[Dropdown Menu Tutorial](https://www.youtube.com/watch?v=IF6k0uZuypA&ab_channel=Fireship)\
 [Context Tutorial](https://stackoverflow.com/questions/41030361/how-to-update-react-context-from-inside-a-child-component)
